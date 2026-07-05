@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-
 const prisma = new PrismaClient();
 
 async function main() {
@@ -9,59 +8,59 @@ async function main() {
   await prisma.article.createMany({
     data: [
       {
-        slug: "ai-hub-alpha",
-        title: "AI Hub v1.0.0-alpha 実装メモ",
+        slug: "ai-hub-beta",
+        title: "AI Hub v1.0.0-beta 実装メモ",
         category: "AI Hub",
-        summary: "AI Hubの最初の実装版。ログイン、ダッシュボード、ナレッジ一覧を備えた骨格。",
+        summary: "完全日本語化、新規作成、編集、削除、検索に対応した実用版。",
         tags: ["AI Hub", "Docker", "React", "PostgreSQL"],
         body: `## 概要
 
-AI Hub v1.0.0-alpha は、Personal Knowledge OS の最初の実装版です。
+AI Hub v1.0.0-beta は、実際にナレッジを追加・編集・削除できる最初の実用版です。
 
-## 実装内容
+## できること
 
-- React frontend
-- Node.js backend
-- PostgreSQL
-- Nginx
-- Docker Compose
-- ログイン
-- ダッシュボード
 - ナレッジ一覧
+- ナレッジ詳細表示
+- 新規作成
+- 編集
+- 削除
+- タグ管理
+- カテゴリ管理
+- 検索
 
 ## 次の予定
 
-v1.0.0-beta では、記事作成・編集・削除を強化します。`
+v1.1.0でAI要約、ナレッジ化ボタンを追加します。`
       },
       {
-        slug: "knowledge-core",
-        title: "Knowledge Coreの考え方",
-        category: "設計",
-        summary: "AI Hubの中心機能であるナレッジ管理の基本方針。",
-        tags: ["ナレッジ", "設計", "Second Brain"],
-        body: `## 方針
+        slug: "ai-hub-setup-log",
+        title: "AI Hub構築ログ",
+        category: "構築ログ",
+        summary: "Proxmoxコンテナ、Docker、GitHub連携、Nginx公開までの記録。",
+        tags: ["Proxmox", "Docker", "GitHub", "Nginx"],
+        body: `## 目的
 
-AI Hubは、単なるメモ帳ではなく、知識を貯めて、つなげて、育てるためのPersonal Knowledge OSです。
+AI HubをProxmox上のLXCコンテナで動かす。
 
-## 大切なこと
+## 実施内容
 
-- 作業ログを残す
-- トラブルも残す
-- コマンドも残す
-- なぜそうしたかも残す
+- ホスト名 ai-hub
+- Docker導入
+- GitHub連携
+- Docker Compose起動
+- Nginx公開
 
-## 将来
+## トラブル
 
-AIが保存済みナレッジを検索し、あなた専用の回答を返せるようにします。`
+80番ポートが仮Nginxに使われていた。
+ai-hub-nginxがbackendを名前解決できなかった。
+
+## 解決
+
+古いNginxコンテナを削除し、nginx設定をコンテナ名指定に変更した。`
       }
     ]
   });
 }
 
-main()
-  .then(() => console.log("seed complete"))
-  .catch((e) => {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(async () => prisma.$disconnect());
+main().catch(e => { console.error(e); process.exit(1); }).finally(async () => prisma.$disconnect());

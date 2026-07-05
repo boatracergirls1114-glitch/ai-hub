@@ -1,6 +1,6 @@
 {
   "name": "ai-hub-backend",
-  "version": "1.0.0-alpha",
+  "version": "1.0.0-beta",
   "type": "module",
   "private": true,
   "scripts": {

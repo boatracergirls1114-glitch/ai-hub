@@ -2,33 +2,26 @@
 
 Personal Knowledge OS
 
-## v1.0.0-alpha
+## v1.0.0-beta
 
-### Features
+- 完全日本語化
+- ナレッジ一覧
+- ナレッジ詳細表示
+- 新規作成
+- 編集
+- 削除
+- 検索
+- タグ
+- カテゴリ
 
-- React frontend
-- Node.js backend
-- PostgreSQL
-- Nginx reverse proxy
-- Login
-- Dashboard
-- Knowledge list
-- Dark futuristic UI
-
-## Setup
+## 起動
 
 ```bash
 cd /opt/ai-hub
 docker compose up -d --build
 ```
 
-## Access
-
-```text
-http://192.168.14.204
-```
-
-## Admin
+## 管理ログイン
 
 ```text
 username: admin
