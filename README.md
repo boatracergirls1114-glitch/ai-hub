@@ -1,15 +1,36 @@
 # AI Hub
 
-AI Hub is a Personal Knowledge OS.
+Personal Knowledge OS
 
-## Concept
+## v1.0.0-alpha
 
-知識を貯める。つなげる。育てる。
+### Features
 
-## Goal
+- React frontend
+- Node.js backend
+- PostgreSQL
+- Nginx reverse proxy
+- Login
+- Dashboard
+- Knowledge list
+- Dark futuristic UI
 
-ChatGPTとの会話、構築ログ、Web記事、PDF、写真分析、Habit Questなどを統合し、自分専用のAI知識基盤として育てる。
+## Setup
 
-## First Milestone
+```bash
+cd /opt/ai-hub
+docker compose up -d --build
+```
 
-v1.0.0 Knowledge Core
+## Access
+
+```text
+http://192.168.14.204
+```
+
+## Admin
+
+```text
+username: admin
+password: change-me-strong-password
+```

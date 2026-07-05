@@ -1,0 +1,19 @@
+{
+  "name": "ai-hub-backend",
+  "version": "1.0.0-alpha",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "node src/server.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.1.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "morgan": "^1.10.0",
+    "prisma": "^6.1.0",
+    "zod": "^3.24.1"
+  }
+}

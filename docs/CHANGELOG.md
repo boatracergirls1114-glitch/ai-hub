@@ -1,8 +1,12 @@
 # CHANGELOG
 
-## v0.1.0
+## v1.0.0-alpha
 
-- AI Hub構想を整理
-- Personal Knowledge OSとして方向性決定
-- GitHub管理方針を決定
-- v1.0.0のスコープを決定
+- React frontend追加
+- Node.js backend追加
+- PostgreSQL追加
+- Nginx reverse proxy追加
+- ログイン機能追加
+- ダッシュボード追加
+- ナレッジ一覧追加
+- 近未来ダークUI追加
