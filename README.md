@@ -1,27 +1,45 @@
-# AI Hub v1.1.1 Hotfix
+# AI Hub v1.1.2 Backup Edition
 
-## 修正内容
+## 内容
 
-- 検索表示修正
-- 検索結果件数表示
-- 検索クリア
-- コードブロック改善
-- Copyボタン
-- Markdownプレビュー
+- NAS対応バックアップスクリプト
+- ローカルバックアップ
+- PostgreSQLダンプ
+- 復元メモ自動生成
+- 実装ナレッジ
 
 ## 反映方法
 
-このZIP内のファイルをGitHubの同じ場所に上書きアップロードしてください。
-
-その後、サーバーで:
+ZIPを展開して、`scripts/backup.sh` と `docs/*` をAI Hubに追加します。
 
 ```bash
 cd /opt/ai-hub
-git pull
-docker compose down
-docker compose build --no-cache
-docker compose up -d
-curl http://localhost/api/health
+mkdir -p scripts docs backups
 ```
 
-`v1.1.1` が出ればOKです。
+```bash
+cp scripts/backup.sh /opt/ai-hub/scripts/backup.sh
+cp docs/* /opt/ai-hub/docs/
+chmod +x /opt/ai-hub/scripts/backup.sh
+```
+
+## 実行
+
+```bash
+cd /opt/ai-hub
+./scripts/backup.sh
+```
+
+## 保存先
+
+ローカル:
+
+```text
+/opt/ai-hub/backups
+```
+
+NAS:
+
+```text
+/mnt/aihub-nas-backup
+```
