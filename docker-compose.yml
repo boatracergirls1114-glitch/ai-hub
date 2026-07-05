@@ -9,9 +9,7 @@ services:
       POSTGRES_DB: aihub
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    networks:
-      - ai_hub_net
-
+    networks: [ai_hub_net]
   backend:
     build: ./backend
     container_name: ai-hub-backend
@@ -23,20 +21,14 @@ services:
       JWT_SECRET: change-me-long-random-secret
       ADMIN_USERNAME: admin
       ADMIN_PASSWORD: change-me-strong-password
-    depends_on:
-      - postgres
-    networks:
-      - ai_hub_net
-
+    depends_on: [postgres]
+    networks: [ai_hub_net]
   frontend:
     build: ./frontend
     container_name: ai-hub-frontend
     restart: unless-stopped
-    depends_on:
-      - backend
-    networks:
-      - ai_hub_net
-
+    depends_on: [backend]
+    networks: [ai_hub_net]
   nginx:
     image: nginx:alpine
     container_name: ai-hub-nginx
@@ -45,14 +37,9 @@ services:
       - "80:80"
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - frontend
-      - backend
-    networks:
-      - ai_hub_net
-
+    depends_on: [frontend, backend]
+    networks: [ai_hub_net]
 volumes:
   postgres_data:
-
 networks:
   ai_hub_net:
